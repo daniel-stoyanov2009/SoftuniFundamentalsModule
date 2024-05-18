@@ -7,4 +7,4 @@ elif ages <= 21:
     drink = "beer"
 else:
     drink = "whisky"
-print(drink)
+print("drink " + drink)
