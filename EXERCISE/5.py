@@ -1,17 +1,20 @@
 n = int(input())
-prices = 0
+prices = 0.00
 
 for _ in range(n):
     price = float(input())
-    if 0.01 > price > 100.00:
+    if price < 0.01 or price > 100.00:
         continue
     days = int(input())
-    if 1 > days > 31:
-        continue
     capsules = int(input())
-    if 1 > capsules > 2000:
+    if days not in range(1, 32):
         continue
-    prices += price*capsules*days
-    print(f"The price for the coffee is: ${price*capsules*days:0.02f}")
+    if capsules not in range(1, 2001):
+        continue
+    price = price*capsules*days
+    if price <= 0:
+        continue
+    print(f"The price for the coffee is: ${price:0.02f}")
+    prices += price
 
 print(f"Total: ${prices:0.02f}")
