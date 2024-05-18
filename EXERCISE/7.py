@@ -1,7 +1,8 @@
-command = input()
-
-while command != "End":
-    for current_char in range(0, len(command)):
-        print(command[current_char]*2, end='')
-    print()
-    command = input()
+current_string = input()
+while current_string != "End":
+    if current_string != "SoftUni":
+        new_string = ""
+        for character in current_string:
+            new_string += character * 2
+        print(new_string)
+    current_string = input()
