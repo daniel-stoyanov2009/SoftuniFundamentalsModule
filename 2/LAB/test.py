@@ -3,6 +3,9 @@ import time
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 def worker():
@@ -22,6 +25,8 @@ def worker():
         driver.find_element("xpath", "/html/body/div[4]/div/div[3]/form/div[1]/div/div/input").send_keys("Bot 1")
         driver.find_element("xpath", "/html/body/div[4]/div/div[3]/form/label/span[1]/span/input").click()
         driver.find_element("xpath", "/html/body/div[4]/div/div[3]/form/div[2]/button").click()
+        wait = WebDriverWait(driver, 9999999999)
+        wait.until(EC.visibility_of_element_located((By.XPATH, element_xpath)))
         driver.find_element("xpath", element_xpath).click()
         driver.get("data:,")
         driver.execute_cdp_cmd('Storage.clearDataForOrigin', {
